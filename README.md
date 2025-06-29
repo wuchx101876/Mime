@@ -93,7 +93,7 @@ This gene set is associated with Wnt/β-catenin signalling from MSigDB.
 ### 1. Construct predicting models for prognosis
 #### 1.1 Select the optimal model
 ``` r
-library(Mime)
+library(Mime1)
 load("./Example.cohort.Rdata")
 load("./genelist.Rdata")
 res <- ML.Dev.Prog.Sig(train_data = list_train_vali_Data$Dataset1,
