@@ -326,7 +326,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
       message("---1-1 RSF ---")
       set.seed(seed)
       fit <- rfsrc(Surv(OS.time,OS)~., data = est_dd,
-                   ntree = 1000, nodesize = rf_nodesize,  #
+                   ntree = 500, nodesize = rf_nodesize,  #
                    splitrule = 'logrank',
                    importance = T,
                    proximity = T,
@@ -350,7 +350,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
       set.seed(seed)
       fit <- rfsrc(Surv(OS.time, OS)~., data = est_dd,
-                   ntree = 1000, nodesize = rf_nodesize,  #
+                   ntree = 500, nodesize = rf_nodesize,  #
                    splitrule = 'logrank',
                    importance = T,
                    proximity = T,
@@ -395,7 +395,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
       set.seed(seed)
       fit <- rfsrc(Surv(OS.time, OS)~., data = est_dd,
-                   ntree = 1000, nodesize = rf_nodesize, #
+                   ntree = 500, nodesize = rf_nodesize, #
                    splitrule = 'logrank',
                    importance = T,
                    proximity = T,
@@ -437,7 +437,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
       set.seed(seed)
       fit <- rfsrc(Surv(OS.time, OS)~., data = est_dd,
-                   ntree = 1000, nodesize = rf_nodesize,  #
+                   ntree = 500, nodesize = rf_nodesize,  #
                    splitrule = 'logrank',
                    importance = T,
                    proximity = T,
@@ -489,7 +489,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
       message("---1-5.RSF + Lasso ---")
 
       fit <- rfsrc(Surv(OS.time, OS)~., data = est_dd,
-                   ntree = 1000, nodesize = rf_nodesize, #
+                   ntree = 500, nodesize = rf_nodesize, #
                    splitrule = 'logrank',
                    importance = T,
                    proximity = T,
@@ -533,7 +533,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
       set.seed(seed)
       fit <- rfsrc(Surv(OS.time, OS)~., data = est_dd,
-                   ntree = 1000, nodesize = rf_nodesize, #
+                   ntree = 500, nodesize = rf_nodesize, #
                    splitrule = 'logrank',
                    importance = T,
                    proximity = T,
@@ -578,7 +578,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
       set.seed(seed)
       fit <- rfsrc(Surv(OS.time, OS)~., data = est_dd,
-                   ntree = 1000, nodesize = rf_nodesize, #
+                   ntree = 500, nodesize = rf_nodesize, #
                    splitrule = 'logrank',
                    importance = T,
                    proximity = T,
@@ -623,7 +623,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
       set.seed(seed)
       fit <- rfsrc(Surv(OS.time,OS)~., data = est_dd,
-                   ntree = 1000, nodesize = rf_nodesize, #
+                   ntree = 500, nodesize = rf_nodesize, #
                    splitrule = 'logrank',
                    importance = T,
                    proximity = T,
@@ -665,7 +665,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
       set.seed(seed)
       fit <- rfsrc(Surv(OS.time,OS)~., data = est_dd,
-                   ntree = 1000, nodesize = rf_nodesize, ##
+                   ntree = 500, nodesize = rf_nodesize, ##
                    splitrule = 'logrank',
                    importance = T,
                    proximity = T,
@@ -731,7 +731,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
       set.seed(seed)
       fit <- rfsrc(Surv(OS.time, OS)~., data = est_dd,
-                   ntree = 1000, nodesize = rf_nodesize, #
+                   ntree = 500, nodesize = rf_nodesize, #
                    splitrule = 'logrank',
                    importance = T,
                    proximity = T,
@@ -968,7 +968,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
           message( paste0('--- 3.StepCox', '[', direction, ']', ' + RSF ---'))
           set.seed(seed)
           fit <- rfsrc(Surv(OS.time,OS)~., data = est_dd2,
-                       ntree = 1000, nodesize = rf_nodesize, #
+                       ntree = 500, nodesize = rf_nodesize, #
                        splitrule = 'logrank',
                        importance = T,
                        proximity = T,
@@ -1204,7 +1204,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
           message( paste0('--- 3.StepCox', '[', direction, ']', ' + RSF ---'))
           set.seed(seed)
           fit <- rfsrc(Surv(OS.time,OS)~., data = est_dd2,
-                       ntree = 1000, nodesize = rf_nodesize, #
+                       ntree = 500, nodesize = rf_nodesize, #
                        splitrule = 'logrank',
                        importance = T,
                        proximity = T,
@@ -1439,7 +1439,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
           message( paste0('--- 3.StepCox', '[', direction, ']', ' + RSF ---'))
           set.seed(seed)
           fit <- rfsrc(Surv(OS.time,OS)~., data = est_dd2,
-                       ntree = 1000, nodesize = rf_nodesize, #
+                       ntree = 500, nodesize = rf_nodesize, #
                        splitrule = 'logrank',
                        importance = T,
                        proximity = T,
@@ -2214,7 +2214,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
       val_dd_list2 <- lapply(list_train_vali_Data, function(x){x[, c('OS.time', 'OS', rid)]})
       set.seed(seed)
       fit <- rfsrc(Surv(OS.time,OS)~., data = est_dd2,
-                   ntree = 1000, nodesize = rf_nodesize, #
+                   ntree = 500, nodesize = rf_nodesize, #
                    splitrule = 'logrank',
                    importance = T,
                    proximity = T,
@@ -2400,7 +2400,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
         set.seed(seed)
         fit <- rfsrc(Surv(OS.time,OS)~., data = est_dd,
-                     ntree = 1000, nodesize = rf_nodesize,  #
+                     ntree = 500, nodesize = rf_nodesize,  #
                      splitrule = 'logrank',
                      importance = T,
                      proximity = T,
@@ -2722,7 +2722,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
           message(paste0('--- ',double_ml1,' + ',double_ml2, ' ',alpha_for_Enet,' ---' ))
           set.seed(seed)
           fit <- rfsrc(Surv(OS.time, OS)~., data = est_dd,
-                       ntree = 1000, nodesize = rf_nodesize,
+                       ntree = 500, nodesize = rf_nodesize,
                        splitrule = 'logrank',
                        importance = T,
                        proximity = T,
@@ -2771,7 +2771,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
           set.seed(seed)
           fit <- rfsrc(Surv(OS.time,OS)~., data = est_dd,
-                       ntree = 1000, nodesize = rf_nodesize,
+                       ntree = 500, nodesize = rf_nodesize,
                        splitrule = 'logrank',
                        importance = T,
                        proximity = T,
@@ -2815,7 +2815,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
           set.seed(seed)
           fit <- rfsrc(Surv(OS.time, OS)~., data = est_dd,
-                       ntree = 1000, nodesize = rf_nodesize,
+                       ntree = 500, nodesize = rf_nodesize,
                        splitrule = 'logrank',
                        importance = T,
                        proximity = T,
@@ -2863,7 +2863,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
           set.seed(seed)
           fit <- rfsrc(Surv(OS.time, OS)~., data = est_dd,
-                       ntree = 1000, nodesize = rf_nodesize,
+                       ntree = 500, nodesize = rf_nodesize,
                        splitrule = 'logrank',
                        importance = T,
                        proximity = T,
@@ -2911,7 +2911,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
           set.seed(seed)
           fit <- rfsrc(Surv(OS.time,OS)~., data = est_dd,
-                       ntree = 1000, nodesize = rf_nodesize,
+                       ntree = 500, nodesize = rf_nodesize,
                        splitrule = 'logrank',
                        importance = T,
                        proximity = T,
@@ -2978,7 +2978,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
           set.seed(seed)
           fit <- rfsrc(Surv(OS.time, OS)~., data = est_dd,
-                       ntree = 1000, nodesize = rf_nodesize,
+                       ntree = 500, nodesize = rf_nodesize,
                        splitrule = 'logrank',
                        importance = T,
                        proximity = T,
@@ -3036,7 +3036,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
           set.seed(seed)
           fit <- rfsrc(Surv(OS.time, OS)~., data = est_dd,
-                       ntree = 1000, nodesize = rf_nodesize,
+                       ntree = 500, nodesize = rf_nodesize,
                        splitrule = 'logrank',
                        importance = T,
                        proximity = T,
@@ -3080,7 +3080,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
           set.seed(seed)
           fit <- rfsrc(Surv(OS.time, OS)~., data = est_dd,
-                       ntree = 1000, nodesize = rf_nodesize,
+                       ntree = 500, nodesize = rf_nodesize,
                        splitrule = 'logrank',
                        importance = T,
                        proximity = T,
@@ -3128,7 +3128,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
           set.seed(seed)
           fit <- rfsrc(Surv(OS.time, OS)~., data = est_dd,
-                       ntree = 1000, nodesize = rf_nodesize, #该值建议多调整
+                       ntree = 500, nodesize = rf_nodesize, #该值建议多调整
                        splitrule = 'logrank',
                        importance = T,
                        proximity = T,
@@ -3277,7 +3277,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
           set.seed(seed)
           fit <- rfsrc(Surv(OS.time,OS)~., data = est_dd2,
-                       ntree = 1000, nodesize = rf_nodesize,
+                       ntree = 500, nodesize = rf_nodesize,
                        splitrule = 'logrank',
                        importance = T,
                        proximity = T,
@@ -4156,7 +4156,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
             val_dd_list2 <- lapply(list_train_vali_Data, function(x){x[, c('OS.time', 'OS', rid)]})
             set.seed(seed)
             fit <- rfsrc(Surv(OS.time,OS)~., data = est_dd2,
-                         ntree = 1000, nodesize = rf_nodesize, #
+                         ntree = 500, nodesize = rf_nodesize, #
                          splitrule = 'logrank',
                          importance = T,
                          proximity = T,
