@@ -415,7 +415,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
       x2 <- as.matrix(Surv(est_dd2$OS.time, est_dd2$OS))
       for (alpha in seq(0.1, 0.9, 0.1)) {
         set.seed(seed)
-        fit = cv.glmnet(x1, x2, family = "cox", alpha = alpha, nfolds = 1)
+        fit = cv.glmnet(x1, x2, family = "cox", alpha = alpha, nfolds = 4)
         rs <- lapply(val_dd_list2, function(x){cbind(x[, 1:2], RS = as.numeric(predict(fit, type = 'link', newx = as.matrix(x[, -c(1, 2)]), s = fit$lambda.min)))})
         cc <- data.frame(Cindex = sapply(rs, function(x){as.numeric(summary(coxph(Surv(OS.time, OS) ~ RS, x))$concordance[1])})) %>%
           rownames_to_column('ID')
@@ -771,7 +771,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
         set.seed(seed)
         message(paste0('--- 2.Enet', '[α=', alpha, '] ---'))
 
-        fit = cv.glmnet(x1, x2, family = "cox", alpha = alpha, nfolds = 1)
+        fit = cv.glmnet(x1, x2, family = "cox", alpha = alpha, nfolds = 4)
         rs <- lapply(val_dd_list,function(x){cbind(x[, 1:2], RS = as.numeric(predict(fit,type = 'link', newx = as.matrix(x[,-c(1,2)]), s = fit$lambda.min)))})
         cc <- data.frame(Cindex = sapply(rs,function(x){as.numeric(summary(coxph(Surv(OS.time, OS) ~ RS, x))$concordance[1])})) %>%
           rownames_to_column('ID')
@@ -855,7 +855,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
             message(  paste0('--- 3.StepCox', '[', direction, ']', ' + Enet', '[α=', alpha, '] ---'))
 
 
-            fit = cv.glmnet(x1, x2, family = "cox",alpha = alpha, nfolds = 1)
+            fit = cv.glmnet(x1, x2, family = "cox",alpha = alpha, nfolds = 4)
             rs <- lapply(val_dd_list2, function(x){cbind(x[, 1:2], RS = as.numeric(predict(fit, type = 'link', newx = as.matrix(x[, -c(1, 2)]), s = fit$lambda.min)))})
             cc <- data.frame(Cindex = sapply(rs,function(x){as.numeric(summary(coxph(Surv(OS.time, OS) ~ RS, x))$concordance[1])})) %>%
               rownames_to_column('ID')
@@ -1091,7 +1091,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
             message(  paste0('--- 3.StepCox', '[', direction, ']', ' + Enet', '[α=', alpha, '] ---'))
 
 
-            fit = cv.glmnet(x1, x2, family = "cox",alpha = alpha, nfolds = 1)
+            fit = cv.glmnet(x1, x2, family = "cox",alpha = alpha, nfolds = 4)
             rs <- lapply(val_dd_list2, function(x){cbind(x[, 1:2], RS = as.numeric(predict(fit, type = 'link', newx = as.matrix(x[, -c(1, 2)]), s = fit$lambda.min)))})
             cc <- data.frame(Cindex = sapply(rs,function(x){as.numeric(summary(coxph(Surv(OS.time, OS) ~ RS, x))$concordance[1])})) %>%
               rownames_to_column('ID')
@@ -1326,7 +1326,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
             message(  paste0('--- 3.StepCox', '[', direction, ']', ' + Enet', '[α=', alpha, '] ---'))
 
 
-            fit = cv.glmnet(x1, x2, family = "cox",alpha = alpha, nfolds = 1)
+            fit = cv.glmnet(x1, x2, family = "cox",alpha = alpha, nfolds = 4)
             rs <- lapply(val_dd_list2, function(x){cbind(x[, 1:2], RS = as.numeric(predict(fit, type = 'link', newx = as.matrix(x[, -c(1, 2)]), s = fit$lambda.min)))})
             cc <- data.frame(Cindex = sapply(rs,function(x){as.numeric(summary(coxph(Surv(OS.time, OS) ~ RS, x))$concordance[1])})) %>%
               rownames_to_column('ID')
@@ -1567,7 +1567,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
       for (alpha in seq(0.1, 0.9, 0.1)) {
         set.seed(seed)
         message( paste0('--- 4.CoxBoost', ' + Enet', '[α=', alpha, '] ---'))
-        fit = cv.glmnet(x1, x2, family = "cox", alpha = alpha, nfolds = 1)
+        fit = cv.glmnet(x1, x2, family = "cox", alpha = alpha, nfolds = 4)
         rs <- lapply(val_dd_list2, function(x){cbind(x[, 1:2], RS = as.numeric(predict(fit, type = 'link', newx = as.matrix(x[, -c(1,2)]), s = fit$lambda.min)))})
         cc <- data.frame(Cindex = sapply(rs, function(x){as.numeric(summary(coxph(Surv(OS.time, OS) ~ RS, x))$concordance[1])})) %>%
           rownames_to_column('ID')
@@ -2430,7 +2430,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
         x1 <- as.matrix(est_dd[, pre_var])
         x2 <- as.matrix(Surv(est_dd$OS.time, est_dd$OS))
           set.seed(seed)
-          fit = cv.glmnet(x1, x2, family = "cox", alpha = alpha_for_Enet, nfolds = 1) ### nfold is set as 10
+          fit = cv.glmnet(x1, x2, family = "cox", alpha = alpha_for_Enet, nfolds = 4) ### nfold is set as 10
 
           rs <- lapply(val_dd_list,function(x){cbind(x[, 1:2], RS = as.numeric(predict(fit,type = 'link', newx = as.matrix(x[,-c(1,2)]), s = fit$lambda.min)))})
           cc <- data.frame(Cindex = sapply(rs,function(x){as.numeric(summary(coxph(Surv(OS.time, OS) ~ RS, x))$concordance[1])})) %>%
@@ -2740,7 +2740,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
             x2 <- as.matrix(Surv(est_dd2$OS.time, est_dd2$OS))
             for (alpha in seq(0.1, 0.9, 0.1)) {
               set.seed(seed)
-              fit = cv.glmnet(x1, x2, family = "cox", alpha = alpha, nfolds = 1)
+              fit = cv.glmnet(x1, x2, family = "cox", alpha = alpha, nfolds = 4)
               rs <- lapply(val_dd_list2, function(x){cbind(x[, 1:2], RS = as.numeric(predict(fit, type = 'link', newx = as.matrix(x[, -c(1, 2)]), s = fit$lambda.min)))})
               cc <- data.frame(Cindex = sapply(rs, function(x){as.numeric(summary(coxph(Surv(OS.time, OS) ~ RS, x))$concordance[1])})) %>%
                 rownames_to_column('ID')
@@ -3241,7 +3241,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
           x1 <- as.matrix(est_dd2[, rid])
           x2 <- as.matrix(Surv(est_dd2$OS.time, est_dd2$OS))
             set.seed(seed)
-            fit = cv.glmnet(x1, x2, family = "cox",alpha = alpha_for_Enet, nfolds = 1)
+            fit = cv.glmnet(x1, x2, family = "cox",alpha = alpha_for_Enet, nfolds = 4)
             rs <- lapply(val_dd_list2, function(x){cbind(x[, 1:2], RS = as.numeric(predict(fit, type = 'link', newx = as.matrix(x[, -c(1, 2)]), s = fit$lambda.min)))})
             cc <- data.frame(Cindex = sapply(rs,function(x){as.numeric(summary(coxph(Surv(OS.time, OS) ~ RS, x))$concordance[1])})) %>%
               rownames_to_column('ID')
@@ -3607,7 +3607,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
           x1 <- as.matrix(est_dd2[, rid])
           x2 <- as.matrix(Surv(est_dd2$OS.time, est_dd2$OS))
             set.seed(seed)
-            fit = cv.glmnet(x1, x2, family = "cox", alpha = alpha_for_Enet, nfolds = 1)
+            fit = cv.glmnet(x1, x2, family = "cox", alpha = alpha_for_Enet, nfolds = 4)
             rs <- lapply(val_dd_list2, function(x){cbind(x[, 1:2], RS = as.numeric(predict(fit, type = 'link', newx = as.matrix(x[, -c(1,2)]), s = fit$lambda.min)))})
             cc <- data.frame(Cindex = sapply(rs, function(x){as.numeric(summary(coxph(Surv(OS.time, OS) ~ RS, x))$concordance[1])})) %>%
               rownames_to_column('ID')
