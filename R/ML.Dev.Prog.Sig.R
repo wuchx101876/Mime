@@ -437,7 +437,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
       set.seed(seed)
       fit <- rfsrc(Surv(OS.time, OS)~., data = est_dd,
-                   ntree = 500, nodesize = rf_nodesize,  #
+                   ntree = 100, nodesize = rf_nodesize,  #
                    splitrule = 'logrank',
                    importance = T,
                    proximity = T,
@@ -454,7 +454,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
       val_dd_list2 <- lapply(list_train_vali_Data, function(x){x[, c('OS.time', 'OS', rid)]})
       set.seed(seed)
       fit <- gbm(formula = Surv(OS.time, OS)~., data = est_dd2, distribution = 'coxph',
-                 n.trees = 10000,
+                 n.trees = 1000,
                  interaction.depth = 3,
                  n.minobsinnode = 10,
                  shrinkage = 0.001,
@@ -876,7 +876,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
 
           fit <- gbm(formula = Surv(OS.time, OS)~., data = est_dd2, distribution = 'coxph',
-                     n.trees = 10000,
+                     n.trees = 1000,
                      interaction.depth = 3,
                      n.minobsinnode = 10,
                      shrinkage = 0.001,
@@ -1112,7 +1112,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
 
           fit <- gbm(formula = Surv(OS.time, OS)~., data = est_dd2, distribution = 'coxph',
-                     n.trees = 10000,
+                     n.trees = 1000,
                      interaction.depth = 3,
                      n.minobsinnode = 10,
                      shrinkage = 0.001,
@@ -1347,7 +1347,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
 
           fit <- gbm(formula = Surv(OS.time, OS)~., data = est_dd2, distribution = 'coxph',
-                     n.trees = 10000,
+                     n.trees = 1000,
                      interaction.depth = 3,
                      n.minobsinnode = 10,
                      shrinkage = 0.001,
@@ -1608,7 +1608,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
       val_dd_list2 <- lapply(list_train_vali_Data, function(x){x[,c('OS.time', 'OS', rid)]})
       set.seed(seed)
       fit <- gbm(formula = Surv(OS.time,OS)~., data = est_dd2, distribution = 'coxph',
-                 n.trees = 10000,
+                 n.trees = 1000,
                  interaction.depth = 3,
                  n.minobsinnode = 10,
                  shrinkage = 0.001,
@@ -1966,7 +1966,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
       set.seed(seed)
       fit <- gbm(formula = Surv(OS.time,OS)~., data = est_dd, distribution = 'coxph',
-                 n.trees = 10000,
+                 n.trees = 1000,
                  interaction.depth = 3,
                  n.minobsinnode = 10,
                  shrinkage = 0.001,
@@ -2123,7 +2123,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
       val_dd_list2 <- lapply(list_train_vali_Data, function(x){x[,c('OS.time', 'OS', rid)]})
       set.seed(seed)
       fit <- gbm(formula = Surv(OS.time,OS)~., data = est_dd2, distribution = 'coxph',
-                 n.trees = 10000,
+                 n.trees = 1000,
                  interaction.depth = 3,
                  n.minobsinnode = 10,
                  shrinkage = 0.001,
@@ -2580,7 +2580,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
         set.seed(seed)
         fit <- gbm(formula = Surv(OS.time,OS)~., data = est_dd, distribution = 'coxph',
-                   n.trees = 10000,
+                   n.trees = 1000,
                    interaction.depth = 3,
                    n.minobsinnode = 10,
                    shrinkage = 0.001,
@@ -2996,7 +2996,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
             val_dd_list2 <- lapply(list_train_vali_Data, function(x){x[, c('OS.time', 'OS', rid)]})
             set.seed(seed)
             fit <- gbm(formula = Surv(OS.time, OS)~., data = est_dd2, distribution = 'coxph',
-                       n.trees = 10000,
+                       n.trees = 1000,
                        interaction.depth = 3,
                        n.minobsinnode = 10,
                        shrinkage = 0.001,
@@ -3422,7 +3422,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
 
           set.seed(seed)
           fit <- gbm(formula = Surv(OS.time, OS)~., data = est_dd2, distribution = 'coxph',
-                     n.trees = 10000,
+                     n.trees = 1000,
                      interaction.depth = 3,
                      n.minobsinnode = 10,
                      shrinkage = 0.001,
@@ -3647,7 +3647,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
             val_dd_list2 <- lapply(list_train_vali_Data, function(x){x[,c('OS.time', 'OS', rid)]})
             set.seed(seed)
             fit <- gbm(formula = Surv(OS.time,OS)~., data = est_dd2, distribution = 'coxph',
-                       n.trees = 10000,
+                       n.trees = 1000,
                        interaction.depth = 3,
                        n.minobsinnode = 10,
                        shrinkage = 0.001,
@@ -4052,7 +4052,7 @@ ML.Dev.Prog.Sig = function(train_data, # cohort data used for training, the coln
             val_dd_list2 <- lapply(list_train_vali_Data, function(x){x[,c('OS.time', 'OS', rid)]})
             set.seed(seed)
             fit <- gbm(formula = Surv(OS.time,OS)~., data = est_dd2, distribution = 'coxph',
-                       n.trees = 10000,
+                       n.trees = 1000,
                        interaction.depth = 3,
                        n.minobsinnode = 10,
                        shrinkage = 0.001,
